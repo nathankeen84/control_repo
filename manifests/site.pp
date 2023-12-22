@@ -11,3 +11,4 @@ node /^db/ {
 }
 node /dk01.k33n0.com/ {
   include role::docker_server
+}
