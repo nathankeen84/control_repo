@@ -18,6 +18,6 @@ mod 'data',
 #     :install_path => 'modules'
     
 mod 'components',
-     :git => 'https://github.com/nathankeen84/control_repo/tree/production/components/',
+     :git => 'https://github.com/nathankeen84/control_repo.git',
      :ref => 'production',
      :install_path => 'modules'    
