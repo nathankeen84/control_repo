@@ -1,6 +1,6 @@
 node default {
-#  $default_role = $facts['role']
- # lookup('role', string[1,default], 'first', $default_role).include
+  $default_role = $facts['role']
+  lookup('role', string[1,default], 'first', $default_role).include
 }
 #node 'puppet' {
 #  include role::master_server
