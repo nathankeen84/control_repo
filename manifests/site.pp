@@ -9,5 +9,5 @@ node /^web/ {
 node /^db/ {
   include role::db_server
 }
-node /dk01/ {
+node /dk01.k33n0.com/ {
   include role::docker_server
