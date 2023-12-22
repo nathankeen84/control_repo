@@ -17,7 +17,7 @@ mod 'data',
 #     :ref => 'production',
 #     :install_path => 'modules'
     
-# mod 'components',
-#     :git => 'https://github.com/nathankeen84/control_repo/tree/production/components/',
-#     :ref => 'production',
-#     :install_path => 'modules'    
+mod 'components',
+     :git => 'https://github.com/nathankeen84/control_repo/tree/production/components/',
+     :ref => 'production',
+     :install_path => 'modules'    
