@@ -1,14 +1,23 @@
-mod 'puppet/nginx'
-mod 'puppetlabs/stdlib'
-mod 'puppetlabs/concat'
-mod 'samuelson-dockeragent', '1.0.0'
-mod 'puppetlabs-docker', '9.1.0'
-mod 'puppetlabs-apt', '9.2.0'
-mod 'puppetlabs-powershell', '6.0.0'
-mod 'puppetlabs-pwshlib', '1.0.1'
-mod 'puppetlabs-reboot', '5.0.0'
-mod 'puppetlabs-kubernetes', '8.0.0'
-mod 'puppet-archive', '7.1.0'
-mod 'puppet-augeasproviders_sysctl', '3.2.0'
-mod 'puppet-augeasproviders_core', '4.1.0'
-mod 'puppet-kmod', '4.0.1'
+#
+# Managed by r10k
+#
+moduledir '/etc/puppetlabs/code/environment/production'
+
+mod 'data'
+    :git => ''
+    :ref => 'production'
+
+mod 'roles'
+    :git => ''
+    :ref => 'production'
+    :install_path => ''
+
+mod ''
+    :git => ''
+    :ref => 'production'
+    :install_path => ''
+    
+mod ''
+    :git => ''
+    :ref => 'production'
+    :install_path => ''    
