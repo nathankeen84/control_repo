@@ -1,0 +1,13 @@
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+if [ -f /etc/bashrc ]; then
+  source /etc/bashrc
+fi
+
+# Colored bash prompt
+export PS1="\[\033[32m\][\w]\[\033[0m\]\n\[\033[1;34m\]\u@\h\[\033[1;34m\]: $ \[\033[0m\]"
+
+# Sync bash history for quest status
+export PROMPT_COMMAND='history -a; history -r'
