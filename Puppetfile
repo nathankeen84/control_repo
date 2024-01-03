@@ -1,1 +1,1 @@
-moduledir '/etc/puppetlabs/code/environments/production'
+moduledir '/etc/puppetlabs/code/environments/production/site/modules'
