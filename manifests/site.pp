@@ -6,7 +6,7 @@ node default {
   }
 }
 node 'puppet.k33n0.com' {
-  include role::master_server, 
+  include role::master_server 
 }
 node 'minetest.puppet.vm' {
   include role::minecraft_server
