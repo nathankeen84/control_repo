@@ -13,7 +13,7 @@ node 'puppet.k33n0.com' {
     owner => 'root',
   }
 }
-node 'minetest.puppet.vm': {
+node 'minetest.puppet.vm' {
   include role::minecraft_server
 }
 node /^web/ { 
