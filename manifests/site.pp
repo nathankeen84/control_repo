@@ -1,20 +1,24 @@
 node default {
-#  $default_role = $facts['role']
-#  lookup('role', String[1, default], 'first', $default_role).include
-}
-node 'puppet.k33n0.com' {
-  include role::master_server
-  file { 'root/README' :
+  file { '/root/README':
     ensure => file,
-    content => $fqdn,
+    content => 'This is a readme',
+    owner   => 'root',
   }
 }
-node /^web/ {
+node 'master.puppet.vm' {
+  include role::master_server
+  file {'/root/README':
+    ensure => file,
+    content => “Welcome to ${fqdn}”,
+    owner => 'root',
+  }
+}
+node 'minetest.puppet.vm': {
+  include role::minecraft_server
+}
+node /^web/ { 
   include role::app_server
 }
 node /^db/ {
   include role::db_server
-}
-node /dk01.k33n0.com/ {
-  include role::docker_server
 }
