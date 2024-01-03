@@ -1,0 +1,43 @@
+$pfx = new-object System.Security.Cryptography.X509Certificates.X509Certificate2
+
+$cert = gi "<%= @location %>\<%= @name %>"
+
+switch -regex ($cert.Extension.ToUpper()) {
+    ".CER|.DER|.P12" {
+        $pfx.Import("<%= @location %>\<%= @name %>","<%= @password %>","<%= @key_storage_flags %>")
+    }
+    ".CRT" {
+        $pfx.Import([System.IO.File]::ReadAllBytes("<%= @location %>\<%= @name %>"))
+    }
+    ".P7B|.SST" {
+        $pfx = new-object System.Security.Cryptography.X509Certificates.X509Certificate2Collection
+        $pfx.Import([System.IO.File]::ReadAllBytes("<%= @location %>\<%= @name %>"))
+    }
+    ".PFX|.P12" {
+        $pfx = new-object System.Security.Cryptography.X509Certificates.X509Certificate2Collection
+        $pfx.import("<%= @location %>\<%= @name %>","<%= @password %>","<%= @key_storage_flags %>")
+    }
+}
+
+$store = new-object System.Security.Cryptography.X509Certificates.X509Store("<%= @store_dir %>","<%= @root_store %>")
+$store.open([System.Security.Cryptography.X509Certificates.OpenFlags]::ReadWrite)
+
+$intermediatestore = new-object System.Security.Cryptography.X509Certificates.X509Store("CA","<%= @root_store %>")
+$intermediatestore.open([System.Security.Cryptography.X509Certificates.OpenFlags]::ReadWrite)
+
+<% if @interstore == true %>
+foreach($cert in $pfx) {
+    $store.Add($cert)
+}
+<% else %>
+foreach($cert in $pfx) {
+  if($cert.Thumbprint -ne "<%= @thumbprint %>") {
+    $intermediatestore.Add($cert)
+  } else {
+    $store.Add($cert)
+  }
+}
+<% end %>
+
+$intermediatestore.close()
+$store.close()
