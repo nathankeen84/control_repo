@@ -5,9 +5,9 @@ node default {
     owner   => 'root',
   }
 }
-node 'puppet.k33n0.com': {
-  include role::master_server
-  file {'/root/README':
+node 'puppet.k33n0.com' {
+  include role::master_server, 
+   file {'/root/README':
     ensure => file,
     content => "Welcome to ${fqdn}",
     owner => 'root',
