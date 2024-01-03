@@ -3,7 +3,7 @@ node default {
 #  lookup('role', String[1, default], 'first', $default_role).include
 }
 node 'puppet.k33n0.com' {
-  include roles::master_server
+  include role::master_server
   file { 'root/README' :
     ensure => file,
     content => $fqdn,
