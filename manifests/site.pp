@@ -2,7 +2,7 @@ node default {
 #  $default_role = $facts['role']
 #  lookup('role', String[1, default], 'first', $default_role).include
 }
-node /^puppet/ {
+node puppet.k33n0.com {
   include role::master_server
 }
 node /^web/ {
