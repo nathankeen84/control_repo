@@ -5,7 +5,7 @@ node default {
     owner   => 'root',
   }
 }
-node 'master.puppet.vm' {
+node 'puppet.k33n0.com' {
   include role::master_server
   file {'/root/README':
     ensure => file,
