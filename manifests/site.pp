@@ -1,22 +1,24 @@
 node default {
   file { '/root/README':
-    ensure  => file,
+    ensure => file,
     content => 'This is a readme',
     owner   => 'root',
-  } 
+  }
 }
 node 'puppet.k33n0.com' {
   include role::master_server
-  file {'/etc/secret_password.txt':
+  file {'/root/README':
     ensure => file,
-    content => lookup('secret_password'),
+    content => “Welcome to ${fqdn}”,
+    owner => 'root',
   }
 }
-  
-node /^web/ {
+node 'minetest.puppet.vm' {
+  include role::minecraft_server
+}
+node /^web/ { 
   include role::app_server
 }
-
 node /^db/ {
   include role::db_server
 }
