@@ -1,0 +1,26 @@
+<%- |
+Stdlib::Unixpath $binary_path,
+Stdlib::Unixpath $workdir_path,
+String[1] $user,
+| -%>
+# THIS FILE IS MANAGED BY PUPPET
+
+[Unit]
+Description=etcd key-value store
+Documentation=https://github.com/etcd-io/etcd
+After=network-online.target local-fs.target remote-fs.target time-sync.target
+Wants=network-online.target local-fs.target remote-fs.target time-sync.target
+
+[Service]
+User=<%= $user %>
+Type=notify
+EnvironmentFile=/etc/etcd/etcd.conf
+EnvironmentFile=/etc/etcd/cluster.conf
+ExecStart=<%= $binary_path %>
+Restart=always
+RestartSec=10s
+LimitNOFILE=40000
+WorkingDirectory=<%= $workdir_path %>
+
+[Install]
+WantedBy=multi-user.target

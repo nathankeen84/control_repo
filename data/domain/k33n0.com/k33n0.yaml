@@ -1,0 +1,11 @@
+puppet_agent::install::darwin
+puppet_agent::install::solaris
+puppet_agent::install::suse
+puppet_agent::install::windows
+puppet_agent::osfamily::aix
+puppet_agent::osfamily::darwin
+puppet_agent::osfamily::debian
+puppet_agent::osfamily::redhat
+puppet_agent::osfamily::solaris
+puppet_agent::osfamily::suse
+puppet_agent::osfamily::windows
