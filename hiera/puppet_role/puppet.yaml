@@ -1,0 +1,30 @@
+---
+classes:
+  - '::role::puppet'
+hiera::hierarchy:
+  - 'clientcert/%%{::}{clientcert}'
+  - 'puppet_role/%%{::}{puppet_role}'
+  - 'global'
+hiera::datadir: '/etc/puppetlabs/code/environments/%%{::}{::environment}/hiera'
+puppet::server: true
+puppet::server_version: 'latest'
+puppet::dns_alt_names:
+    - 'puppet'
+puppet::puppetdb_server: 'puppet.example.com'
+puppet::puppetdb: true
+puppet::manage_puppetdb: false
+puppet::manage_hiera: false
+puppet::firewall: true
+puppetdb::listen_address: '0.0.0.0'
+r10k::version: '2.1.1'
+r10k::sources:
+  puppet:
+    remote: 'git@github.com:puppetinabox/controlrepo.git'
+    basedir: '/etc/puppetlabs/code/environments'
+    prefix: false
+r10k::manage_modulepath: false
+r10k::webhook::config::use_mcollective: false
+r10k::webhook::config::public_key_path: '/etc/puppetlabs/puppetdb/ssl/public.pem'
+r10k::webhook::config::private_key_path: '/etc/puppetlabs/puppetdb/ssl/private.pem'
+r10k::webhook::user: 'root'
+r10k::webhook::group: 0
