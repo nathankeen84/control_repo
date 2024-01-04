@@ -1,10 +1,12 @@
 ---
-:backends:
-  - yaml
-:hierarchy:
-  - clientcert/%{clientcert}
-  - puppet_role/%{puppet_role}
-  - global
+version: 5
 
-:yaml:
-  :datadir: /etc/puppetlabs/code//environments/%{environment}/hiera
+defaults:
+  datadir: "data"
+
+hierarchy:
+  - name: "Yaml backend"
+    data_hash: yaml_data
+    paths:
+      - "nodes/%{trusted.certname}.yaml"
+      - "common.yaml"
