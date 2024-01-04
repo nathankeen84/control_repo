@@ -1,0 +1,59 @@
+# pltraining/dockeragent
+
+## Release Notes
+
+## v0.0.14
+* Use no-agent image as base for agent image
+* Single local yum repo
+
+## v0.0.13
+* Fix path inside containers
+
+## v0.0.12
+* Use centos:7 container
+
+## v0.0.11
+
+* Tired of seeing 'docker: command not found'?
+* This fixes the broken fact.
+
+## v0.0.10
+
+* Support for privileged mode
+* ssh service on containers
+* Improved experience on container command line
+* Optional build image or use existing
+
+## v0.0.9
+
+* Unpin docker module
+
+## v0.0.8
+
+* Pin to known good docker module
+* Fix cached yum repo
+
+## v0.0.7
+
+* Fix yum server name for Infrastructure Design
+
+## v0.0.6
+
+* fix bug from v0.0.5 with hardcoded image name
+
+### v0.0.5
+
+* use maci0/systemd for more stable init system
+
+### v0.0.4
+
+* Minor corrections to track upstream docker module.
+* Updates to PAM and the init system.
+
+### v0.0.2
+
+* Use classroom master for yum repos and docker registry
+
+### v0.0.1
+
+* Initial release
