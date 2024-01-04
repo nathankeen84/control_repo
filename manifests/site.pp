@@ -5,7 +5,7 @@ node default {
     owner   => 'root',
   } 
 }
-node 'ubuntu-22.04' {
+node 'puppet.k33n0.com' {
   include role::master_server
   file {'/etc/secret_password.txt':
     ensure => file,
