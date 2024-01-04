@@ -41,7 +41,7 @@ define dockeragent::node (
       'TERM=xterm'
     ],
     extra_parameters      => [
-      "--add-host \"${::fqdn} puppet:${gateway_ip}\"",
+      "--add-host \"${fqdn} puppet:${gateway_ip}\"",
       '--security-opt seccomp=unconfined',
       '--restart=always',
       '--tmpfs /tmp',
