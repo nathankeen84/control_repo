@@ -1,6 +1,0 @@
----
-:hierachy:
-  - common
-:yaml:
-  :datadir: "%{settings::path}/tests/hieradata"
-#  :datadir: "%{settings::confdir}/modules/%{calling_module}/tests/hieradata"

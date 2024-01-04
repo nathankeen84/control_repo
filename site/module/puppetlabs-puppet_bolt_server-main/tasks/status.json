@@ -1,7 +1,0 @@
-{
-    "description": "Returns the number of Bolt processes, and free available memory",
-    "parameters": {},
-    "implementations": [
-      {"name": "status.sh", "requirements": ["shell"], "input_method": "environment"}
-    ]
-  }

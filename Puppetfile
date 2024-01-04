@@ -1,23 +1,17 @@
-#
-# Managed by r10k
-#
-moduledir '/etc/puppetlabs/code/environment/production'
+forge 'https://forge.puppet.com'
 
-mod 'data',
-    :git => 'https://github.com/nathankeen84/control_repo.git',
-    :ref => 'production'
+# Modules from the Puppet Forge
+# Versions should be updated to be the latest at the time you start
+#mod 'puppetlabs/inifile', '5.0.1'
+#mod 'puppetlabs/stdlib',  '7.0.1'
+#mod 'puppetlabs/concat',  '7.0.1'
 
-#  mod 'roles',
-#      :git => 'https://github.com/nathankeen84/control_repo/tree/production/role',
-#      :ref => 'production',
-#      :install_path => 'modules'
+# Modules from Git
+# Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
+#mod 'apache',
+#  git:    'https://github.com/puppetlabs/puppetlabs-apache',
+#  commit: '1b6f89afdde0df7f9433a163d5c4b5328eac5779'
 
-#  mod 'profiles',
-#      :git => 'https://github.com/nathankeen84/control_repo/tree/production/profile/',
-#      :ref => 'production',
-#      :install_path => 'modules'
-    
-# mod 'components',
-#      :git => 'https://github.com/nathankeen84/control_repo.git',
-#      :ref => 'production',
-#      :install_path => 'modules'    
+#mod 'apache',
+#  git:    'https://github.com/puppetlabs/puppetlabs-apache',
+#  branch: 'docs_experiment'
