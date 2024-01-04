@@ -48,6 +48,4 @@ mod 'danzilio/kickstart', '0.2.0'
 mod 'puppet/community_kickstarts', '0.2.3'
 # Discovered elements from existing Puppetfile
 # Modules from Github
-mod 'lab_config',
-  :git => 'git@github.com:puppetinabox/lab_config.git',
-  :branch => 'puppetserver'
+
